@@ -41,6 +41,7 @@ def get_single_request(requestId):
             request_data for request_data in request_data_list
             if request_data['request_id'] == requestId
         ]
+    # check if there is data already stored        
     if len(request_data) == 0:
         abort(404)
     return jsonify({
