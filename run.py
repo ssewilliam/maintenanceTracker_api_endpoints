@@ -18,8 +18,8 @@ request_data_list = [
     {
         'request_id':'3',    
         'request_type':'repair',    
-        'request_title':'Fix the navigation bar',
-        'request_body':'The navigation bar is not sticky for the mobile devices.You should repair it so that it remains sticky'
+        'request_title':'Add an about page',
+        'request_body':'We need an about us page on the app where we can find out more about you'
     }
 ]
 
@@ -85,6 +85,40 @@ def create_request():
         'message': 'Failed to create a request. Invalid data',
     }), 400
 
+@app.route('/api_v_1/users/requests/<requestId>',methods=['PUT'])
+def modify_request(requestId):
+    # 1. force getting json data from a request
+    put_request_data = request.get_json(force=True)
+
+    """
+        2. (Using List comprehension)
+            from the data stored in the temp storage check if the id passed matches the stored id
+           to verify that the request id does exist
+    """
+    request_data = [request_dat for request_dat in request_data_list if request_dat['request_id'] == requestId]
+    if len(request_data) < 1:
+        abort(404)
+
+    """
+    # 3 update the data with what has been passed
+    new_put_request = {
+        'request_id':request_data_list[requestId-1]['request_id'],
+        'request_type':request_data_list[requestId-1]['request_type'],
+        'request_title':request_data_list[requestId-1]['request_title'],
+        'request_body':request_data_list[requestId-1]['request_body']
+    }"""
+    # 3 create a new dictionary with the data that has been passed
+    new_put_request = {
+        'request_id':put_request_data['request_id'],
+        'request_type':put_request_data['request_type'],
+        'request_title':put_request_data['request_title'],
+        'request_body':put_request_data['request_body']
+    }
+    # 4 Save the changes to the temp storage
+    request_data_list.append(new_put_request)
+    return jsonify({
+        'results':new_put_request
+    }), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
