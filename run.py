@@ -52,7 +52,7 @@ def get_single_request(requestId):
         abort(404)
     return jsonify({ # 3. return the found request id details
         'request_data':request_data[0]
-    })
+    }),200
 
 @app.route('/api_v_1/users/requests' ,methods= ['POST'])
 def create_request():
@@ -62,7 +62,7 @@ def create_request():
     # 1. force getting json data from a request
     request_data = request.get_json(force=True)
     # 2. validate the data checkking if its of examples of strings
-    if isinstance(request_data['request_type'], str) and isinstance(request_data['request_title'], str):
+    if isinstance(request_data['request_type'], str) and  isinstance(request_data['request_title'], str) and isinstance(request_data['request_body'], str):
         
         # 3. store the data
         request_last_id = len(request_data_list) #  count how many maintance requests are already saved
@@ -70,7 +70,8 @@ def create_request():
         request_datas = {
             'request_id':request_last_id,
             'request_title':request_data['request_title'],
-            'request_type': request_data['request_type']
+            'request_type': request_data['request_type'],
+            'request_body':request_data['request_body']
         }
         # create an instance of request and immitate the saving of data
         request_data_list.append(request_datas)  #  Save request in the list
@@ -83,5 +84,7 @@ def create_request():
         'status': 'FAIL',
         'message': 'Failed to create a request. Invalid data',
     }), 400
+
+
 if __name__ == "__main__":
     app.run(debug=True)
