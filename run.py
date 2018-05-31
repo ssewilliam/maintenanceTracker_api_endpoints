@@ -34,5 +34,18 @@ def get_all_requests():
         'requests':request_data_list
     }),200
 
+@app.route('/api_v_1/users/requests/<requestId>',methods=['GET'])
+def get_single_request(requestId):
+    # fetch data from storage and check if the id passed matches storage id
+    request_data = [
+            request_data for request_data in request_data_list
+            if request_data['request_id'] == requestId
+        ]
+    if len(request_data) == 0:
+        abort(404)
+    return jsonify({
+        'request_data':request_data[0]
+    })
+
 if __name__ == "__main__":
     app.run(debug=True)
