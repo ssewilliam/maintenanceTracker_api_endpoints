@@ -1,12 +1,11 @@
 ## MaintenanceTracker_API_endpoints
 ![BuildStatus](https://travis-ci.org/ssewilliam/maintenanceTracker_api_endpoints.svg?branch=api)
-(https://travis-ci.org/travis-ci/travis-web)
 
 ## DESCRIPTION
 Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
 
 ## LINK TO Maintance Tracker Github Pages
-### [MaintenanceTracker](https://ssewilliam.github.io/maintenancetracker
+### https://ssewilliam.github.io/maintenanceTracker/
 
 ## Project API endpoint routes
 | REQUEST | ROUTE | ACTION / FUNCTIONALITY |
