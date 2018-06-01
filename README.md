@@ -1,5 +1,5 @@
 ## MaintenanceTracker_API_endpoints
-[![BuildStatus](https://travis-ci.org/ssewilliam/maintenanceTracker_api_endpoints.svg?branch=api)]
+![BuildStatus](https://travis-ci.org/ssewilliam/maintenanceTracker_api_endpoints.svg?branch=api)
 (https://travis-ci.org/travis-ci/travis-web)
 
 ## DESCRIPTION
