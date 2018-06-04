@@ -1,5 +1,6 @@
 ## MaintenanceTracker_API_endpoints
-![BuildStatus](https://travis-ci.org/ssewilliam/maintenanceTracker_api_endpoints.svg?branch=api)
+![BuildStatus](https://travis-ci.org/ssewilliam/maintenanceTracker_api_endpoints.svg?branch=test_api)
+[![Coverage Status](https://coveralls.io/repos/github/ssewilliam/maintenanceTracker_api_endpoints/badge.svg?branch=master)](https://coveralls.io/github/ssewilliam/maintenanceTracker_api_endpoints?branch=test_api)
 
 ## DESCRIPTION
 Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
